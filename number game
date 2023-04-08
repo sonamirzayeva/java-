@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class RandomNumber {
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+int max = (int) (Math.random() * 500) + 99;
+int min = (int) (Math.random() * 70) + 1;
+int randomNumber = (int) (Math.random() * (max - min + 1)) + min;
+int maxcehd = 20;
+int cehd = 0;
+int xal = 0;
+System.out.println("oyunun qaydalari");
+System.out.println("1.Sistem mueyyen intervalda eded secir. ");
+System.out.println("2.Siz o ededi tapirsiniz.");
+System.out.println("3.Neqeder az cehdde tapsaniz o qeder cox xal qazanirsiniz.");
+System.out.println("4.Xallar cedveli:");
+System.out.println("[0-5] - 100 Xal");
+System.out.println("[6-10] -50 Xal");
+System.out.println("[11-15] -25 Xal");
+System.out.println("[16-20] -5 Xal");
+System.out.println("Bu defe [" + min + "-" + max + "] intervalindan bir eded secmisem. Bu ededi Texmin et (^_^)");
+while (cehd < maxcehd) {
+try {
+System.out.print("You: ");
+int texmin = input.nextInt();
+cehd++;
+if (texmin == randomNumber) {
+System.out.println("AI:-Tebrikler!!! ");
+System.out.println("AI:-Siz " + cehd + "-ci cehdinizde tapdiniz.");
+if (cehd <= 5) {
+xal = 100;
+} else if (cehd <= 10) {
+xal = 50;
+} else if (cehd <= 15) {
+xal = 25;
+} else if (cehd <= 20) {
+xal = 5;
+}
+System.out.println("AI:-Sizin xaliniz " + xal);
+break;
+} else if (texmin < randomNumber) {
+System.out.println("AI:-Zehmet olmasa daha boyuk eded daxil et:");
+} else {
+System.out.println("AI- Zehmet olmasa daha kicik eded daxil et :");
+}
+if (cehd == maxcehd) {
+System.out.println("AI:-Siz uduzdunuz");
+System.out.println("AI:-Duzgun nomre: " + randomNumber);
+}
+} catch (java.util.InputMismatchException ) {
+System.out.println("Invalid input. Please enter a number.");
+input.nextLine();
+}
+}
+}
+}
